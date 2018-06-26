@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import Kingfisher
 
 class Poke_dexViewController: UICollectionViewController {
     
@@ -32,13 +33,12 @@ class Poke_dexViewController: UICollectionViewController {
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
-        cell.id.text = String(pokemonId![indexPath.item])
+        cell.id.text = "#" + String(pokemonId![indexPath.item])
         cell.name.text = pokemonName![indexPath.item]
-        if let url = NSURL(string: pokemonSprite![indexPath.item]) {
-            if let data = NSData(contentsOf: url as URL) {
-                cell.sprite.image = UIImage(data: data as Data)
-            }
-        }
+        
+        let url = URL(string: pokemonSprite![indexPath.item])
+        // this downloads the image asynchronously if it's not cached yet
+        cell.sprite.kf.setImage(with: url)
         cell.backgroundColor = UIColor.lightGray
         
         return cell
