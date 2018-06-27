@@ -13,14 +13,16 @@ import Kingfisher
 
 class Poke_dexViewController: UICollectionViewController {
     
-    @IBOutlet weak var myLabel: UILabel!
-    
     var pokemonDetails : [Int:String] = [:]
     var pokemonId : [Int]?
     var pokemonName : [String]?
     var pokemonSprite : [String]?
     let reuseIdentifier = "cell"
     var baseURL = "http://pokeapi.co/api/v2/pokemon/"
+    
+    var storedId : Int = 0
+    var storedName : String = ""
+    var storedSprite : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,22 +35,25 @@ class Poke_dexViewController: UICollectionViewController {
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
-        cell.id.text = "#" + String(pokemonId![indexPath.item])
-        cell.name.text = pokemonName![indexPath.item]
-        
+        cell.id.text = "#" + String(pokemonId![indexPath.item] + 1)
+        cell.name.text = pokemonName![indexPath.item].capitalized
         let url = URL(string: pokemonSprite![indexPath.item])
-        // this downloads the image asynchronously if it's not cached yet
         cell.sprite.kf.setImage(with: url)
-        cell.backgroundColor = UIColor.lightGray
-        
         return cell
     }
     
-//    func loadImage(url spriteURL : String) {
-//        if let url = NSURL(string: spriteURL) {
-//            if let data = NSData(contentsOf: url as URL) {
-//                cell.sprite.image = UIImage(data: data as Data)
-//            }
-//        }
-//    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        storedId = pokemonId![indexPath.item]
+        storedName = pokemonName![indexPath.item]
+        storedSprite = pokemonSprite![indexPath.item]
+        performSegue(withIdentifier: "goToStats", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToStats" {
+            let destinationVC = segue.destination as! Poke_monViewController
+            destinationVC.pokemonId = storedId
+            destinationVC.pokemonName = storedName
+            destinationVC.pokemonSprite = storedSprite
+        }
+    }
 }

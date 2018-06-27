@@ -24,14 +24,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         getPokemon(url: baseURL)
     }
-    //grabs image from url and displays it inside a UIImageView
-//    func loadImage(url spriteURL : String) {
-//        if let url = NSURL(string: spriteURL) {
-//            if let data = NSData(contentsOf: url as URL) {
-//                //sprite.image = UIImage(data: data as Data)
-//            }
-//        }
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToPokedex" {
             let destinationVC = segue.destination as! Poke_dexViewController

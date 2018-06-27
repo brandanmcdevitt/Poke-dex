@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1EC80520E3A5A800B8BAFE /* PokémonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1EC80420E3A5A800B8BAFE /* PokémonViewController.swift */; };
 		2C8611E020E23F8B0061F070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8611DF20E23F8B0061F070 /* AppDelegate.swift */; };
 		2C8611E220E23F8B0061F070 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8611E120E23F8B0061F070 /* ViewController.swift */; };
 		2C8611E520E23F8B0061F070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8611E320E23F8B0061F070 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		0F2A25EC96FC2A8D315B729E /* Pods-Pokédex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokédex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pokédex/Pods-Pokédex.debug.xcconfig"; sourceTree = "<group>"; };
+		2C1EC80420E3A5A800B8BAFE /* PokémonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PokémonViewController.swift"; sourceTree = "<group>"; };
 		2C8611DC20E23F8B0061F070 /* Pokédex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokédex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8611DF20E23F8B0061F070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C8611E120E23F8B0061F070 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		2CA9AB9220E2884200384D6B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2C1EC80420E3A5A800B8BAFE /* PokémonViewController.swift */,
 				2C8611E120E23F8B0061F070 /* ViewController.swift */,
 				2CA9ABA820E29B4800384D6B /* PokédexViewController.swift */,
 			);
@@ -284,6 +287,7 @@
 			files = (
 				2C8611E220E23F8B0061F070 /* ViewController.swift in Sources */,
 				2C8611E020E23F8B0061F070 /* AppDelegate.swift in Sources */,
+				2C1EC80520E3A5A800B8BAFE /* PokémonViewController.swift in Sources */,
 				2CA9ABAD20E2CC6100384D6B /* MyCollectionViewCell.swift in Sources */,
 				2CA9ABA920E29B4800384D6B /* PokédexViewController.swift in Sources */,
 			);
@@ -433,7 +437,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5UVZRKV28W;
 				INFOPLIST_FILE = "Pokédex/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.brandanmcdevitt.Poke-dex";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -449,7 +456,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5UVZRKV28W;
 				INFOPLIST_FILE = "Pokédex/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.brandanmcdevitt.Poke-dex";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
