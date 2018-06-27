@@ -19,7 +19,9 @@ class ViewController: UIViewController {
     var pokemonName : [String] = []
     var pokemonSprite : [String] = []
     var pokemonDetails : [(key: Int, value: String)] = []
+    var backgroundImageName = ""
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         getPokemon(url: baseURL)
@@ -27,8 +29,23 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //TODO: fix iphone8 background not loading
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        switch UIScreen.main.bounds.height {
+        case 812:   // 5.8" (iPhone X) (3x) (Portrait)
+            backgroundImageName = "bg_iphoneX"
+        case 736:  // 5.5" (iPhone 8+, 7+, 6s+, 6+) (3x) (Portrait)
+            backgroundImageName = "background_1242x2208"
+        case 414:  // 5.5" (iPhone 8+, 7+, 6s+, 6+) (3x) (Landscape)
+            backgroundImageName = "bg_iphone8"
+        case 667:  // 4.7" (iPhone 8, 7, 6s, 6) (2x) (Portrait)
+            backgroundImageName = "background_750x1334"
+        default:
+            break;
+        }
+        backgroundImageView.image = #imageLiteral(resourceName: "bg_iphone8")
     }
     
     override func viewWillDisappear(_ animated: Bool) {

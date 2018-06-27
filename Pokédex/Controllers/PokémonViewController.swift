@@ -18,6 +18,7 @@ class Poke_monViewController: UIViewController {
     var pokemonSprite : String?
 
     var baseURL = "http://pokeapi.co/api/v2/pokemon/"
+    var baseSpeciesURL = "http://pokeapi.co/api/v2/pokemon-species/"
     var type : [String] = []
     var favourite = false
     
@@ -26,6 +27,7 @@ class Poke_monViewController: UIViewController {
     @IBOutlet weak var ID: UILabel!
     @IBOutlet weak var lblType: UILabel!
     @IBOutlet weak var btnFavourite: UIButton!
+    @IBOutlet weak var lblFlavor: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         let url = URL(string: pokemonSprite!)
@@ -33,7 +35,9 @@ class Poke_monViewController: UIViewController {
         Name.text = pokemonName!.capitalized
         ID.text = "#" + String(pokemonId! + 1)
         let fetchedURL = baseURL + String(pokemonId! + 1)
+        let speciesURL = baseSpeciesURL + String(pokemonId! + 1)
         getInfo(url: fetchedURL)
+        getInfo(url: speciesURL)
     }
     func getInfo(url : String) {
         Alamofire.request(url, method: .get)
@@ -42,7 +46,12 @@ class Poke_monViewController: UIViewController {
                     print("Connection Successful!")
                     let detailsJSON : JSON = JSON(response.result.value!)
                     //update ui elements when data is pulled
-                    self.updateDetails(with: detailsJSON)
+                    if url.contains("pokemon-species") {
+                        self.updateSpecies(with: detailsJSON)
+                    } else {
+                        self.updateDetails(with: detailsJSON)
+                    }
+                    
                 } else {
                     print("Error: \(String(describing: response.result.error))")
                 }
@@ -54,7 +63,11 @@ class Poke_monViewController: UIViewController {
             type.append(types!)
         }
         lblType.text = type.joined(separator: "/")
-       // print(type)
+    }
+    func updateSpecies(with json : JSON) {
+        let flavourText = json["flavor_text_entries"][1]["flavor_text"].string
+        let replaced = flavourText?.replacingOccurrences(of: "\n", with: " ")
+        lblFlavor.text = replaced
     }
     
     @IBAction func favouriteClicked(_ sender: UIButton) {
