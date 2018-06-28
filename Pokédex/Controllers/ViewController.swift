@@ -59,6 +59,10 @@ class ViewController: UIViewController {
             destinationVC.pokemonId = pokemonId
             destinationVC.pokemonName = pokemonName
             destinationVC.pokemonSprite = pokemonSprite
+        } else if segue.identifier == "goToFavourites" {
+            let destinationVC = segue.destination as! FavouriteViewController
+            destinationVC.pokemonName = pokemonName
+            destinationVC.pokemonSprite = pokemonSprite
         }
     }
     func getPokemon(url : String) {

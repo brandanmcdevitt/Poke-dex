@@ -14,6 +14,7 @@
 		2C8611E720E23F8E0061F070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8611E620E23F8E0061F070 /* Assets.xcassets */; };
 		2C8611EA20E23F8E0061F070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8611E820E23F8E0061F070 /* LaunchScreen.storyboard */; };
 		2CA46DB420E4407F00AE6A46 /* Favourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DB320E4407F00AE6A46 /* Favourite.swift */; };
+		2CA46DB720E4FCF600AE6A46 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DB620E4FCF600AE6A46 /* FavouriteViewController.swift */; };
 		2CA9AB9D20E295B100384D6B /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9AB9320E295AF00384D6B /* JosefinSans-ThinItalic.ttf */; };
 		2CA9AB9E20E295B100384D6B /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9AB9420E295B000384D6B /* JosefinSans-Bold.ttf */; };
 		2CA9AB9F20E295B100384D6B /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9AB9520E295B000384D6B /* JosefinSans-SemiBold.ttf */; };
@@ -40,6 +41,7 @@
 		2C8611E920E23F8E0061F070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C8611EB20E23F8E0061F070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CA46DB320E4407F00AE6A46 /* Favourite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourite.swift; sourceTree = "<group>"; };
+		2CA46DB620E4FCF600AE6A46 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		2CA9AB9320E295AF00384D6B /* JosefinSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ThinItalic.ttf"; sourceTree = "<group>"; };
 		2CA9AB9420E295B000384D6B /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
 		2CA9AB9520E295B000384D6B /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				2C1EC80420E3A5A800B8BAFE /* PokémonViewController.swift */,
 				2C8611E120E23F8B0061F070 /* ViewController.swift */,
 				2CA9ABA820E29B4800384D6B /* PokédexViewController.swift */,
+				2CA46DB620E4FCF600AE6A46 /* FavouriteViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				2C8611E020E23F8B0061F070 /* AppDelegate.swift in Sources */,
 				2C1EC80520E3A5A800B8BAFE /* PokémonViewController.swift in Sources */,
 				2CA46DB420E4407F00AE6A46 /* Favourite.swift in Sources */,
+				2CA46DB720E4FCF600AE6A46 /* FavouriteViewController.swift in Sources */,
 				2CA9ABAD20E2CC6100384D6B /* MyCollectionViewCell.swift in Sources */,
 				2CA9ABA920E29B4800384D6B /* PokédexViewController.swift in Sources */,
 			);
