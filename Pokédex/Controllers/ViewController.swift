@@ -28,7 +28,6 @@ class ViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         //TODO: fix iphone8 background not loading
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -46,8 +45,8 @@ class ViewController: UIViewController {
             break;
         }
         backgroundImageView.image = #imageLiteral(resourceName: "bg_iphone8")
+        //backgroundImageView.image = UIImage(named: backgroundImageName)
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -75,7 +74,6 @@ class ViewController: UIViewController {
                 }
         }
     }
-    
     func updateStats(json : JSON) {
         var results : [Int:String] = [:]
         for i in 0..<151 {
