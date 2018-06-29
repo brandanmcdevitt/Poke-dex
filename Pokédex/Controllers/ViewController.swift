@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -21,10 +22,13 @@ class ViewController: UIViewController {
     var pokemonDetails : [(key: Int, value: String)] = []
     var backgroundImageName = ""
     
+    var player : AVAudioPlayer?
+    
     @IBOutlet weak var backgroundImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         getPokemon(url: baseURL)
+        playSound()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -88,6 +92,24 @@ class ViewController: UIViewController {
             pokemonId.append(key)
             pokemonName.append(value)
             pokemonSprite.append(pokemonSpriteBase + String(key + 1) + format)
+        }
+    }
+    
+    func playSound() {
+        guard let url = Bundle.main.url(forResource: "theme", withExtension: "mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+
+            guard let player = player else { return }
+            player.numberOfLoops = -1
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
 }
