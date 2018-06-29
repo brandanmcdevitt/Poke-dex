@@ -112,8 +112,6 @@ class ViewController: UIViewController {
             let volume = UserDefaults.standard.float(forKey: "volume")
             player.volume = volume
             player.play()
-            print(player.volume)
-            
         } catch let error {
             print(error.localizedDescription)
         }

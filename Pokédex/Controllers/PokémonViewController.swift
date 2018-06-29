@@ -11,6 +11,7 @@ import Kingfisher
 import Alamofire
 import SwiftyJSON
 import RealmSwift
+import AVFoundation
 
 class Poke_monViewController: UIViewController {
     
@@ -29,6 +30,8 @@ class Poke_monViewController: UIViewController {
     var results : Results<Favourite>?
     var resultsCache : Results<Detail>?
     var replaced = ""
+    
+    var player : AVAudioPlayer?
     
     @IBOutlet weak var Sprite: UIImageView!
     @IBOutlet weak var Name: UILabel!
@@ -106,6 +109,9 @@ class Poke_monViewController: UIViewController {
     }
     
     @IBAction func favouriteClicked(_ sender: UIButton) {
+        if isFavourite == false {
+            playSound()
+        }
         isFavourite = !isFavourite
         saveFavourite()
     }
@@ -160,6 +166,22 @@ class Poke_monViewController: UIViewController {
                 lblFlavor.text = item.flavour
                 lblType.text = item.type
             }
+        }
+    }
+    
+    func playSound() {
+        guard let url = Bundle.main.url(forResource: "favourite", withExtension: "mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = player else { return }
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
 }
