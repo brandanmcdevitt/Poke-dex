@@ -16,6 +16,7 @@
 		2CA46DB420E4407F00AE6A46 /* Favourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DB320E4407F00AE6A46 /* Favourite.swift */; };
 		2CA46DB720E4FCF600AE6A46 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DB620E4FCF600AE6A46 /* FavouriteViewController.swift */; };
 		2CA46DB920E63C3100AE6A46 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DB820E63C3100AE6A46 /* SettingsViewController.swift */; };
+		2CA46DBD20E664B100AE6A46 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DBC20E664B100AE6A46 /* Detail.swift */; };
 		2CA9AB9D20E295B100384D6B /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9AB9320E295AF00384D6B /* JosefinSans-ThinItalic.ttf */; };
 		2CA9AB9E20E295B100384D6B /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9AB9420E295B000384D6B /* JosefinSans-Bold.ttf */; };
 		2CA9AB9F20E295B100384D6B /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9AB9520E295B000384D6B /* JosefinSans-SemiBold.ttf */; };
@@ -44,6 +45,7 @@
 		2CA46DB320E4407F00AE6A46 /* Favourite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourite.swift; sourceTree = "<group>"; };
 		2CA46DB620E4FCF600AE6A46 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		2CA46DB820E63C3100AE6A46 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2CA46DBC20E664B100AE6A46 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		2CA9AB9320E295AF00384D6B /* JosefinSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ThinItalic.ttf"; sourceTree = "<group>"; };
 		2CA9AB9420E295B000384D6B /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
 		2CA9AB9520E295B000384D6B /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA46DB320E4407F00AE6A46 /* Favourite.swift */,
+				2CA46DBC20E664B100AE6A46 /* Detail.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				2C8611E220E23F8B0061F070 /* ViewController.swift in Sources */,
 				2C8611E020E23F8B0061F070 /* AppDelegate.swift in Sources */,
+				2CA46DBD20E664B100AE6A46 /* Detail.swift in Sources */,
 				2C1EC80520E3A5A800B8BAFE /* PokémonViewController.swift in Sources */,
 				2CA46DB420E4407F00AE6A46 /* Favourite.swift in Sources */,
 				2CA46DB720E4FCF600AE6A46 /* FavouriteViewController.swift in Sources */,

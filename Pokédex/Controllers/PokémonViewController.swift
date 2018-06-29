@@ -25,7 +25,10 @@ class Poke_monViewController: UIViewController {
     var type : [String] = []
     var isFavourite = false
     let favourite = Favourite()
+    let detail = Detail()
     var results : Results<Favourite>?
+    var resultsCache : Results<Detail>?
+    var replaced = ""
     
     @IBOutlet weak var Sprite: UIImageView!
     @IBOutlet weak var Name: UILabel!
@@ -37,6 +40,7 @@ class Poke_monViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadFavourite()
+        loadCache()
         if isFavourite == true {
             btnFavourite.setImage(#imageLiteral(resourceName: "star-filled"), for: .normal)
         } else {
@@ -47,14 +51,20 @@ class Poke_monViewController: UIViewController {
         Sprite.kf.setImage(with: url)
         Name.text = pokemonName!.capitalized
         ID.text = "#" + String(pokemonId! + 1)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         let fetchedURL = baseURL + String(pokemonId! + 1)
         let speciesURL = baseSpeciesURL + String(pokemonId! + 1)
-        getInfo(url: fetchedURL)
-        getInfo(url: speciesURL)
+        
+        if lblFlavor.text == "" && lblType.text == "" {
+            getInfo(url: speciesURL)
+            getInfo(url: fetchedURL)
+        } else if lblFlavor.text == "" {
+            getInfo(url: speciesURL)
+        } else if lblType.text == "" {
+            getInfo(url: fetchedURL)
+        }
     }
     
     func getInfo(url : String) {
@@ -68,7 +78,6 @@ class Poke_monViewController: UIViewController {
                     } else {
                         self.updateDetails(with: detailsJSON)
                     }
-                    
                 } else {
                     print("Error: \(String(describing: response.result.error))")
                 }
@@ -81,14 +90,16 @@ class Poke_monViewController: UIViewController {
             type.append(types!)
         }
         lblType.text = type.joined(separator: "/")
+        saveCache()
     }
     
     func updateSpecies(with json : JSON) {
         for (_, value) in json ["flavor_text_entries"] {
             if value["language"]["name"] == "en" {
                 let flavourText = value["flavor_text"].string
-                let replaced = flavourText?.replacingOccurrences(of: "\n", with: " ")
+                replaced = (flavourText?.replacingOccurrences(of: "\n", with: " "))!
                 lblFlavor.text = replaced
+                saveCache()
                 break
             }
         }
@@ -127,4 +138,28 @@ class Poke_monViewController: UIViewController {
     }
     }
     
+    func saveCache() {
+        do {
+            try realm.write {
+                if detail.id.value == nil {
+                    detail.id.value = pokemonId!
+                }
+                detail.flavour = replaced
+                detail.type = type.joined(separator: "/")
+                realm.add(detail, update: true)
+            }
+        } catch {
+            print("Error saving content: \(error)")
+        }
+    }
+    
+    func loadCache(){
+        resultsCache = realm.objects(Detail.self)
+        for item in resultsCache! {
+            if item.id.value == pokemonId {
+                lblFlavor.text = item.flavour
+                lblType.text = item.type
+            }
+        }
+    }
 }
