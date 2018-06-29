@@ -67,6 +67,9 @@ class ViewController: UIViewController {
             let destinationVC = segue.destination as! FavouriteViewController
             destinationVC.pokemonName = pokemonName
             destinationVC.pokemonSprite = pokemonSprite
+        } else if segue.identifier == "goToSettings" {
+            let destinationVC = segue.destination as! SettingsViewController
+            destinationVC.player = player
         }
     }
     func getPokemon(url : String) {
@@ -106,7 +109,10 @@ class ViewController: UIViewController {
 
             guard let player = player else { return }
             player.numberOfLoops = -1
+            let volume = UserDefaults.standard.float(forKey: "volume")
+            player.volume = volume
             player.play()
+            print(player.volume)
             
         } catch let error {
             print(error.localizedDescription)

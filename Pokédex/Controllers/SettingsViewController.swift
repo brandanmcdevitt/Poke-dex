@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SettingsViewController: UIViewController {
 
+    var player : AVAudioPlayer?
+    let volume = UserDefaults.standard.float(forKey: "volume")
+   
+    @IBOutlet weak var slider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        slider.value = volume
+    }
+    
+    @IBAction func volumeSlider(_ sender: UISlider) {
+        player?.volume = sender.value
+        UserDefaults.standard.set(sender.value, forKey: "volume")
     }
 
 }
