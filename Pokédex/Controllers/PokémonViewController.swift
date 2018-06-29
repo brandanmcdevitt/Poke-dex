@@ -84,9 +84,14 @@ class Poke_monViewController: UIViewController {
     }
     
     func updateSpecies(with json : JSON) {
-        let flavourText = json["flavor_text_entries"][33]["flavor_text"].string
-        let replaced = flavourText?.replacingOccurrences(of: "\n", with: " ")
-        lblFlavor.text = replaced
+        for (_, value) in json ["flavor_text_entries"] {
+            if value["language"]["name"] == "en" {
+                let flavourText = value["flavor_text"].string
+                let replaced = flavourText?.replacingOccurrences(of: "\n", with: " ")
+                lblFlavor.text = replaced
+                break
+            }
+        }
     }
     
     @IBAction func favouriteClicked(_ sender: UIButton) {

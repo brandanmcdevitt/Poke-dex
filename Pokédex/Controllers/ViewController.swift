@@ -69,7 +69,6 @@ class ViewController: UIViewController {
         Alamofire.request(url, method: .get)
             .responseJSON { response in
                 if response.result.isSuccess {
-                    print("Connection Successful!")
                     let pokemonJSON : JSON = JSON(response.result.value!)
                     //update ui elements when data is pulled
                     self.updateStats(json: pokemonJSON)
