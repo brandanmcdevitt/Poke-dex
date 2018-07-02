@@ -34,29 +34,34 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction func AudioStateChanged(_ sender: UISwitch) {
+        
         if sender.tag == 1 {
             if !sender.isOn {
                 player?.stop()
-                updateValue(with: false)
+                updateValue(with: false, key: "music")
             } else if sender.isOn == true {
                 player?.play()
-                updateValue(with: true)
+                updateValue(with: true, key: "music")
             }
         } else if sender.tag == 2 {
             if !sender.isOn {
                 sfx?.stop()
-                UserDefaults.standard.set(false, forKey: "sfx")
-                
-            } else {
+                updateValue(with: false, key: "sfx")
+                print("sfx: \(sfxState)")
+            } else if sender.isOn == true {
                 sfx?.play()
-                UserDefaults.standard.set(true, forKey: "sfx")
-                
+                updateValue(with: true, key: "sfx")
+                print("sfx: \(sfxState)")
             }
         }
     }
     
-    func updateValue(with value : Bool) {
-        UserDefaults.standard.set(value, forKey: "music")
-        musicState = UserDefaults.standard.bool(forKey: "music")
+    func updateValue(with value : Bool, key : String) {
+        UserDefaults.standard.set(value, forKey: key)
+        if key == "music" {
+        musicState = UserDefaults.standard.bool(forKey: key)
+        } else if key == "sfx" {
+            sfxState = UserDefaults.standard.bool(forKey: key)
+        }
     }
 }

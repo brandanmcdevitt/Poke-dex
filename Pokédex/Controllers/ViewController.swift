@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     var pokemonDetails : [(key: Int, value: String)] = []
     var backgroundImageName = ""
     let musicState = UserDefaults.standard.bool(forKey: "music")
+    var sfxstate = UserDefaults.standard.bool(forKey: "sfx")
     
     var player : AVAudioPlayer?
     var sfx : AVAudioPlayer?
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         getPokemon(url: baseURL)
         playSound()
+        playSoundOnSelect()
         if musicState == true {
             player?.play()
         }
@@ -55,7 +57,7 @@ class ViewController: UIViewController {
         }
         backgroundImageView.image = #imageLiteral(resourceName: "bg_iphone8")
         //backgroundImageView.image = UIImage(named: backgroundImageName)
-        print(musicState)
+        sfxstate = UserDefaults.standard.bool(forKey: "sfx")
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -64,7 +66,9 @@ class ViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        playSoundOnSelect()
+        if sfxstate == true {
+            sfx?.play()
+        }
         if segue.identifier == "goToPokedex" {
             let destinationVC = segue.destination as! Poke_dexViewController
             destinationVC.pokemonId = pokemonId
@@ -135,7 +139,9 @@ class ViewController: UIViewController {
             sfx = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
 
             guard let sfx = sfx else { return }
-            sfx.play()
+            let volume = UserDefaults.standard.float(forKey: "volume")
+            sfx.volume = volume
+            //sfx.play()
         } catch let error {
             print(error.localizedDescription)
         }
