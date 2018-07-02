@@ -21,14 +21,19 @@ class ViewController: UIViewController {
     var pokemonSprite : [String] = []
     var pokemonDetails : [(key: Int, value: String)] = []
     var backgroundImageName = ""
+    let musicState = UserDefaults.standard.bool(forKey: "music")
     
     var player : AVAudioPlayer?
+    var sfx : AVAudioPlayer?
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         getPokemon(url: baseURL)
         playSound()
+        if musicState == true {
+            player?.play()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,6 +55,7 @@ class ViewController: UIViewController {
         }
         backgroundImageView.image = #imageLiteral(resourceName: "bg_iphone8")
         //backgroundImageView.image = UIImage(named: backgroundImageName)
+        print(musicState)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -58,6 +64,7 @@ class ViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        playSoundOnSelect()
         if segue.identifier == "goToPokedex" {
             let destinationVC = segue.destination as! Poke_dexViewController
             destinationVC.pokemonId = pokemonId
@@ -70,6 +77,7 @@ class ViewController: UIViewController {
         } else if segue.identifier == "goToSettings" {
             let destinationVC = segue.destination as! SettingsViewController
             destinationVC.player = player
+            destinationVC.sfx = sfx
         }
     }
     func getPokemon(url : String) {
@@ -111,7 +119,23 @@ class ViewController: UIViewController {
             player.numberOfLoops = -1
             let volume = UserDefaults.standard.float(forKey: "volume")
             player.volume = volume
-            player.play()
+            //player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func playSoundOnSelect() {
+        guard let url = Bundle.main.url(forResource: "select", withExtension: "wav") else { return }
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            sfx = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
+
+            guard let sfx = sfx else { return }
+            sfx.play()
         } catch let error {
             print(error.localizedDescription)
         }
