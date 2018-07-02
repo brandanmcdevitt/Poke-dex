@@ -13,19 +13,38 @@ class SettingsViewController: UIViewController {
 
     var player : AVAudioPlayer?
     var sfx : AVAudioPlayer?
+    var audioPlayers : [AVAudioPlayer?]?
     let volume = UserDefaults.standard.float(forKey: "volume")
     var musicState = UserDefaults.standard.bool(forKey: "music")
     var sfxState = UserDefaults.standard.bool(forKey: "sfx")
-   
+    var theme = UserDefaults.standard.string(forKey: "theme")
+    
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var musicSwitch: UISwitch!
     @IBOutlet weak var sfxSwitch: UISwitch!
+    @IBOutlet weak var kantoButton: UIButton!
+    @IBOutlet weak var johtoButton: UIButton!
+    @IBOutlet weak var hoennButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         slider.value = volume
         musicSwitch.isOn = musicState
         sfxSwitch.isOn = sfxState
+        
+        switch theme {
+        case "red":
+            buttonSelected(sender: kantoButton)
+            break
+        case "gold":
+            buttonSelected(sender: johtoButton)
+            break;
+        case "ruby":
+            buttonSelected(sender: hoennButton)
+            break;
+        default:
+            break
+        }
     }
     
     @IBAction func volumeSlider(_ sender: UISlider) {
@@ -47,12 +66,50 @@ class SettingsViewController: UIViewController {
             if !sender.isOn {
                 sfx?.stop()
                 updateValue(with: false, key: "sfx")
-                print("sfx: \(sfxState)")
             } else if sender.isOn == true {
                 sfx?.play()
                 updateValue(with: true, key: "sfx")
-                print("sfx: \(sfxState)")
             }
+        }
+    }
+    
+    @IBAction func ThemeSelected(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            if UserDefaults.standard.string(forKey: "theme") != "red" {
+                buttonSelected(sender: sender)
+                UserDefaults.standard.set("red", forKey: "theme")
+                buttonDeselected(sender: johtoButton)
+                buttonDeselected(sender: hoennButton)
+                player?.stop()
+                player = audioPlayers?[sender.tag]
+                player?.play()
+            }
+            break
+        case 1:
+            if UserDefaults.standard.string(forKey: "theme") != "gold" {
+                buttonSelected(sender: sender)
+                UserDefaults.standard.set("gold", forKey: "theme")
+                buttonDeselected(sender: kantoButton)
+                buttonDeselected(sender: hoennButton)
+                player?.stop()
+                player = audioPlayers?[sender.tag]
+                player?.play()
+            }
+            break
+        case 2:
+            if UserDefaults.standard.string(forKey: "theme") != "ruby" {
+                buttonSelected(sender: sender)
+                UserDefaults.standard.set("ruby", forKey: "theme")
+                buttonDeselected(sender: kantoButton)
+                buttonDeselected(sender: johtoButton)
+                player?.stop()
+                player = audioPlayers?[sender.tag]
+                player?.play()
+            }
+            break
+        default:
+            break
         }
     }
     
@@ -63,5 +120,15 @@ class SettingsViewController: UIViewController {
         } else if key == "sfx" {
             sfxState = UserDefaults.standard.bool(forKey: key)
         }
+    }
+    
+    func buttonSelected(sender : UIButton) {
+        sender.backgroundColor = UIColor(red:0.83, green:0.18, blue:0.18, alpha:1.0)
+        sender.setTitleColor(UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0), for: .normal)
+    }
+    
+    func buttonDeselected(sender : UIButton) {
+        sender.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
+        sender.setTitleColor(UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0), for: .normal)
     }
 }

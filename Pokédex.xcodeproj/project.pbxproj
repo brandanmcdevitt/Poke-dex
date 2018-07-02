@@ -17,9 +17,11 @@
 		2CA46DB720E4FCF600AE6A46 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DB620E4FCF600AE6A46 /* FavouriteViewController.swift */; };
 		2CA46DB920E63C3100AE6A46 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DB820E63C3100AE6A46 /* SettingsViewController.swift */; };
 		2CA46DBD20E664B100AE6A46 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DBC20E664B100AE6A46 /* Detail.swift */; };
-		2CA46DBF20E6860500AE6A46 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46DBE20E6860500AE6A46 /* theme.mp3 */; };
 		2CA46DC120E6EC9D00AE6A46 /* favourite.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46DC020E6EC9D00AE6A46 /* favourite.mp3 */; };
 		2CA46DC320E6F06800AE6A46 /* select.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46DC220E6F06700AE6A46 /* select.wav */; };
+		2CA46DC520EA50D300AE6A46 /* gold.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46DC420EA50D300AE6A46 /* gold.mp3 */; };
+		2CA46DC720EA51DB00AE6A46 /* red.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46DC620EA51DA00AE6A46 /* red.mp3 */; };
+		2CA46DC920EA51FF00AE6A46 /* ruby.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46DC820EA51FF00AE6A46 /* ruby.mp3 */; };
 		2CA9AB9D20E295B100384D6B /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9AB9320E295AF00384D6B /* JosefinSans-ThinItalic.ttf */; };
 		2CA9AB9E20E295B100384D6B /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9AB9420E295B000384D6B /* JosefinSans-Bold.ttf */; };
 		2CA9AB9F20E295B100384D6B /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA9AB9520E295B000384D6B /* JosefinSans-SemiBold.ttf */; };
@@ -49,9 +51,11 @@
 		2CA46DB620E4FCF600AE6A46 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		2CA46DB820E63C3100AE6A46 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2CA46DBC20E664B100AE6A46 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
-		2CA46DBE20E6860500AE6A46 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = theme.mp3; path = "Pokédex/Supporting Files/Assets.xcassets/theme.dataset/theme.mp3"; sourceTree = "<group>"; };
 		2CA46DC020E6EC9D00AE6A46 /* favourite.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = favourite.mp3; sourceTree = "<group>"; };
 		2CA46DC220E6F06700AE6A46 /* select.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = select.wav; sourceTree = "<group>"; };
+		2CA46DC420EA50D300AE6A46 /* gold.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gold.mp3; sourceTree = "<group>"; };
+		2CA46DC620EA51DA00AE6A46 /* red.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = red.mp3; sourceTree = "<group>"; };
+		2CA46DC820EA51FF00AE6A46 /* ruby.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ruby.mp3; sourceTree = "<group>"; };
 		2CA9AB9320E295AF00384D6B /* JosefinSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ThinItalic.ttf"; sourceTree = "<group>"; };
 		2CA9AB9420E295B000384D6B /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
 		2CA9AB9520E295B000384D6B /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -91,9 +95,11 @@
 		2C8611D320E23F8B0061F070 = {
 			isa = PBXGroup;
 			children = (
+				2CA46DC820EA51FF00AE6A46 /* ruby.mp3 */,
+				2CA46DC620EA51DA00AE6A46 /* red.mp3 */,
+				2CA46DC420EA50D300AE6A46 /* gold.mp3 */,
 				2CA46DC220E6F06700AE6A46 /* select.wav */,
 				2CA46DC020E6EC9D00AE6A46 /* favourite.mp3 */,
-				2CA46DBE20E6860500AE6A46 /* theme.mp3 */,
 				2C8611DE20E23F8B0061F070 /* Pokédex */,
 				2C8611DD20E23F8B0061F070 /* Products */,
 				300A804225B932A350020B15 /* Pods */,
@@ -248,9 +254,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CA46DC920EA51FF00AE6A46 /* ruby.mp3 in Resources */,
+				2CA46DC720EA51DB00AE6A46 /* red.mp3 in Resources */,
+				2CA46DC520EA50D300AE6A46 /* gold.mp3 in Resources */,
 				2CA46DC320E6F06800AE6A46 /* select.wav in Resources */,
 				2CA46DC120E6EC9D00AE6A46 /* favourite.mp3 in Resources */,
-				2CA46DBF20E6860500AE6A46 /* theme.mp3 in Resources */,
 				2CA9ABA120E295B100384D6B /* JosefinSans-Italic.ttf in Resources */,
 				2CA9ABA520E295B100384D6B /* JosefinSans-LightItalic.ttf in Resources */,
 				2C8611EA20E23F8E0061F070 /* LaunchScreen.storyboard in Resources */,
