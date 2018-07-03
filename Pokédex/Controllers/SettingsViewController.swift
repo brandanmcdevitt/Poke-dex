@@ -25,12 +25,17 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var kantoButton: UIButton!
     @IBOutlet weak var johtoButton: UIButton!
     @IBOutlet weak var hoennButton: UIButton!
+    @IBOutlet weak var bitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         slider.value = volume
         musicSwitch.isOn = musicState
         sfxSwitch.isOn = sfxState
+        addBorder(sender: kantoButton)
+        addBorder(sender: johtoButton)
+        addBorder(sender: hoennButton)
+        addBorder(sender: bitButton)
         
         switch theme {
         case "red":
@@ -38,10 +43,13 @@ class SettingsViewController: UIViewController {
             break
         case "gold":
             buttonSelected(sender: johtoButton)
-            break;
+            break
         case "ruby":
             buttonSelected(sender: hoennButton)
-            break;
+            break
+        case "16bit":
+            buttonSelected(sender: bitButton)
+            break
         default:
             break
         }
@@ -81,9 +89,8 @@ class SettingsViewController: UIViewController {
                 UserDefaults.standard.set("red", forKey: "theme")
                 buttonDeselected(sender: johtoButton)
                 buttonDeselected(sender: hoennButton)
-                player?.stop()
-                player = audioPlayers?[sender.tag]
-                player?.play()
+                buttonDeselected(sender: bitButton)
+                changeTheme(with: sender)
             }
             break
         case 1:
@@ -92,9 +99,8 @@ class SettingsViewController: UIViewController {
                 UserDefaults.standard.set("gold", forKey: "theme")
                 buttonDeselected(sender: kantoButton)
                 buttonDeselected(sender: hoennButton)
-                player?.stop()
-                player = audioPlayers?[sender.tag]
-                player?.play()
+                buttonDeselected(sender: bitButton)
+                changeTheme(with: sender)
             }
             break
         case 2:
@@ -103,9 +109,18 @@ class SettingsViewController: UIViewController {
                 UserDefaults.standard.set("ruby", forKey: "theme")
                 buttonDeselected(sender: kantoButton)
                 buttonDeselected(sender: johtoButton)
-                player?.stop()
-                player = audioPlayers?[sender.tag]
-                player?.play()
+                buttonDeselected(sender: bitButton)
+                changeTheme(with: sender)
+            }
+            break
+        case 3:
+            if UserDefaults.standard.string(forKey: "theme") != "16bit" {
+                buttonSelected(sender: sender)
+                UserDefaults.standard.set("16bit", forKey: "theme")
+                buttonDeselected(sender: kantoButton)
+                buttonDeselected(sender: johtoButton)
+                buttonDeselected(sender: hoennButton)
+                changeTheme(with: sender)
             }
             break
         default:
@@ -130,5 +145,21 @@ class SettingsViewController: UIViewController {
     func buttonDeselected(sender : UIButton) {
         sender.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
         sender.setTitleColor(UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0), for: .normal)
+    }
+    
+    func addBorder(sender : UIButton) {
+        sender.layer.cornerRadius = 5
+        sender.layer.borderWidth = 1
+        sender.layer.borderColor = (UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0).cgColor)
+    }
+    
+    func changeTheme(with sender : UIButton) {
+        if player?.isPlaying == true {
+            player?.stop()
+            player = audioPlayers?[sender.tag]
+            player?.play()
+        } else {
+            player = audioPlayers?[sender.tag]
+        }
     }
 }

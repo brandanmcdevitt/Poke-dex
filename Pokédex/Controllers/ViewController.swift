@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     var pokemonSprite : [String] = []
     var pokemonDetails : [(key: Int, value: String)] = []
     var backgroundImageName = ""
-    let themeChoice = ["red", "gold", "ruby"]
+    let themeChoice = ["red", "gold", "ruby", "16bit"]
     var audioPlayers = [AVAudioPlayer?]()
     
     var musicState = UserDefaults.standard.bool(forKey: "music")
@@ -40,10 +40,15 @@ class ViewController: UIViewController {
             switch theme {
             case "red":
                 player = audioPlayers[0]
+                break
             case "gold":
                 player = audioPlayers[1]
+                break
             case "ruby":
                 player = audioPlayers[2]
+                break
+            case "16bit":
+                player = audioPlayers[3]
                 break
             default:
                 break

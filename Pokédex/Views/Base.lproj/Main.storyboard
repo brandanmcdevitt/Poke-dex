@@ -172,7 +172,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acB-WM-GQZ">
-                                <rect key="frame" x="16" y="275" width="111" height="46"/>
+                                <rect key="frame" x="16" y="274" width="165" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Regular" family="Josefin Sans" pointSize="17"/>
@@ -184,7 +184,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgH-ta-Z8e">
-                                <rect key="frame" x="248" y="275" width="111" height="46"/>
+                                <rect key="frame" x="16" y="333" width="165" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Regular" family="Josefin Sans" pointSize="17"/>
@@ -196,7 +196,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWi-6I-neR">
-                                <rect key="frame" x="132" y="275" width="111" height="46"/>
+                                <rect key="frame" x="194" y="274" width="165" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Regular" family="Josefin Sans" pointSize="17"/>
@@ -205,6 +205,18 @@
                                 </state>
                                 <connections>
                                     <action selector="ThemeSelected:" destination="Qxb-Gx-2nT" eventType="touchUpInside" id="LHS-cJ-ryL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tme-bJ-8bT">
+                                <rect key="frame" x="194" y="333" width="165" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="JosefinSans-Regular" family="Josefin Sans" pointSize="17"/>
+                                <state key="normal" title="16-Bit Theme">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="ThemeSelected:" destination="Qxb-Gx-2nT" eventType="touchUpInside" id="Rqk-Gz-Q8R"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -218,6 +230,7 @@
                         <viewLayoutGuide key="safeArea" id="3bL-WL-YbW"/>
                     </view>
                     <connections>
+                        <outlet property="bitButton" destination="Tme-bJ-8bT" id="bqw-QG-Fxy"/>
                         <outlet property="hoennButton" destination="VgH-ta-Z8e" id="TMX-RW-pZe"/>
                         <outlet property="johtoButton" destination="yWi-6I-neR" id="m4E-AL-Uet"/>
                         <outlet property="kantoButton" destination="acB-WM-GQZ" id="hGv-sI-CnI"/>
@@ -414,6 +427,10 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RPz-mJ-jbT">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -431,6 +448,7 @@
                         <outlet property="btnFavourite" destination="W0m-AF-jGx" id="jYI-Cf-Whp"/>
                         <outlet property="lblFlavor" destination="RAd-I7-yQY" id="AaO-4F-t1u"/>
                         <outlet property="lblType" destination="q3G-Fb-XR2" id="DA0-sn-zy7"/>
+                        <outlet property="loadSpinner" destination="RPz-mJ-jbT" id="7Ww-ND-Eak"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfs-I4-Zh1" userLabel="First Responder" sceneMemberID="firstResponder"/>

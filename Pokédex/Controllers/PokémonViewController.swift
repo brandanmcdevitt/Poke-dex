@@ -39,6 +39,7 @@ class Poke_monViewController: UIViewController {
     @IBOutlet weak var lblType: UILabel!
     @IBOutlet weak var btnFavourite: UIButton!
     @IBOutlet weak var lblFlavor: UILabel!
+    @IBOutlet weak var loadSpinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +103,7 @@ class Poke_monViewController: UIViewController {
                 let flavourText = value["flavor_text"].string
                 replaced = (flavourText?.replacingOccurrences(of: "\n", with: " "))!
                 lblFlavor.text = replaced
+                loadSpinner.stopAnimating()
                 saveCache()
                 break
             }
