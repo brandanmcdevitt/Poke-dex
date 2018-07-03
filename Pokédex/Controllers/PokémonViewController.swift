@@ -58,6 +58,9 @@ class Poke_monViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if lblFlavor.text != "" {
+            loadSpinner.stopAnimating()
+        }
         let fetchedURL = baseURL + String(pokemonId! + 1)
         let speciesURL = baseSpeciesURL + String(pokemonId! + 1)
         

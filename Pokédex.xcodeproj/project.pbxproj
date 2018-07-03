@@ -13,6 +13,8 @@
 		2C8611E520E23F8B0061F070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8611E320E23F8B0061F070 /* Main.storyboard */; };
 		2C8611E720E23F8E0061F070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8611E620E23F8E0061F070 /* Assets.xcassets */; };
 		2C8611EA20E23F8E0061F070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8611E820E23F8E0061F070 /* LaunchScreen.storyboard */; };
+		2C86ADCE20EBB7EE002A873F /* Pokemon GB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C86ADCD20EBB7EE002A873F /* Pokemon GB.ttf */; };
+		2C86ADD020EBFC07002A873F /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 2C86ADCF20EBFC07002A873F /* AppIcon.appiconset */; };
 		2CA46DB420E4407F00AE6A46 /* Favourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DB320E4407F00AE6A46 /* Favourite.swift */; };
 		2CA46DB720E4FCF600AE6A46 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DB620E4FCF600AE6A46 /* FavouriteViewController.swift */; };
 		2CA46DB920E63C3100AE6A46 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46DB820E63C3100AE6A46 /* SettingsViewController.swift */; };
@@ -48,6 +50,8 @@
 		2C8611E620E23F8E0061F070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C8611E920E23F8E0061F070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C8611EB20E23F8E0061F070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C86ADCD20EBB7EE002A873F /* Pokemon GB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon GB.ttf"; sourceTree = "<group>"; };
+		2C86ADCF20EBFC07002A873F /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		2CA46DB320E4407F00AE6A46 /* Favourite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourite.swift; sourceTree = "<group>"; };
 		2CA46DB620E4FCF600AE6A46 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		2CA46DB820E63C3100AE6A46 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				2C8611E620E23F8E0061F070 /* Assets.xcassets */,
+				2C86ADCF20EBFC07002A873F /* AppIcon.appiconset */,
 				2C8611E820E23F8E0061F070 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -174,6 +179,7 @@
 		2CA9ABA720E295BB00384D6B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				2C86ADCD20EBB7EE002A873F /* Pokemon GB.ttf */,
 				2CA9AB9420E295B000384D6B /* JosefinSans-Bold.ttf */,
 				2CA9AB9820E295B000384D6B /* JosefinSans-BoldItalic.ttf */,
 				2CA9AB9720E295B000384D6B /* JosefinSans-Italic.ttf */,
@@ -257,9 +263,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C86ADCE20EBB7EE002A873F /* Pokemon GB.ttf in Resources */,
 				2CA46DCD20EAADA900AE6A46 /* 16bit.mp3 in Resources */,
 				2CA46DC920EA51FF00AE6A46 /* ruby.mp3 in Resources */,
 				2CA46DC720EA51DB00AE6A46 /* red.mp3 in Resources */,
+				2C86ADD020EBFC07002A873F /* AppIcon.appiconset in Resources */,
 				2CA46DC520EA50D300AE6A46 /* gold.mp3 in Resources */,
 				2CA46DC320E6F06800AE6A46 /* select.wav in Resources */,
 				2CA46DC120E6EC9D00AE6A46 /* favourite.mp3 in Resources */,
@@ -496,7 +504,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.brandanmcdevitt.Poke-dex";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -515,7 +523,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.brandanmcdevitt.Poke-dex";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

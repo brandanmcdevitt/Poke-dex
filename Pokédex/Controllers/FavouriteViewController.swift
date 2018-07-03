@@ -24,7 +24,7 @@ class FavouriteViewController: UICollectionViewController {
     var storedId : Int = 0
     var storedName : String = ""
     var storedSprite : String = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadFavourite()
@@ -37,7 +37,7 @@ class FavouriteViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        //print(pokemonId.count)
+        print(pokemonId.count)
         return pokemonId.count
     }
 

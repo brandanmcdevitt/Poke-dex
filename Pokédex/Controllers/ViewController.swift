@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getPokemon(url: baseURL)
+        UserDefaults.standard.set("red", forKey: "theme")
         if theme != nil {
             playSound()
             switch theme {
@@ -67,18 +68,16 @@ class ViewController: UIViewController {
         
         switch UIScreen.main.bounds.height {
         case 812:   // 5.8" (iPhone X) (3x) (Portrait)
-            backgroundImageName = "bg_iphoneX"
+            backgroundImageName = "X_bg"
         case 736:  // 5.5" (iPhone 8+, 7+, 6s+, 6+) (3x) (Portrait)
-            backgroundImageName = "background_1242x2208"
-        case 414:  // 5.5" (iPhone 8+, 7+, 6s+, 6+) (3x) (Landscape)
-            backgroundImageName = "bg_iphone8"
+            backgroundImageName = "8plus_bg"
         case 667:  // 4.7" (iPhone 8, 7, 6s, 6) (2x) (Portrait)
-            backgroundImageName = "background_750x1334"
+            backgroundImageName = "8_bg"
         default:
             break;
         }
-        backgroundImageView.image = #imageLiteral(resourceName: "bg_iphone8")
-        //backgroundImageView.image = UIImage(named: backgroundImageName)
+        //backgroundImageView.image = #imageLiteral(resourceName: "bg_iphone8")
+        backgroundImageView.image = UIImage(named: backgroundImageName)
         sfxState = UserDefaults.standard.bool(forKey: "sfx")
     }
     override func viewWillDisappear(_ animated: Bool) {
