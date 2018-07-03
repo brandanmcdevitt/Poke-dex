@@ -13,6 +13,8 @@ class Detail : Object {
     let id = RealmOptional<Int>()
     @objc dynamic var flavour : String?
     @objc dynamic var type : String?
+    @objc dynamic var ability : String?
+    @objc dynamic var stat : String?
     
     override static func primaryKey() -> String? {
         return "id"

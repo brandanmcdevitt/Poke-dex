@@ -24,12 +24,15 @@ class Poke_monViewController: UIViewController {
     var baseURL = "http://pokeapi.co/api/v2/pokemon/"
     var baseSpeciesURL = "http://pokeapi.co/api/v2/pokemon-species/"
     var type : [String] = []
+    var abilities : [String] = []
+    var stats : [String : Int] = [:]
     var isFavourite = false
     let favourite = Favourite()
     let detail = Detail()
     var results : Results<Favourite>?
     var resultsCache : Results<Detail>?
     var replaced = ""
+    var dictToString = ""
     
     var player : AVAudioPlayer?
     
@@ -40,6 +43,8 @@ class Poke_monViewController: UIViewController {
     @IBOutlet weak var btnFavourite: UIButton!
     @IBOutlet weak var lblFlavor: UILabel!
     @IBOutlet weak var loadSpinner: UIActivityIndicatorView!
+    @IBOutlet weak var labelAbility: UILabel!
+    @IBOutlet weak var lblStats: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,8 +101,27 @@ class Poke_monViewController: UIViewController {
             let types = value["type"]["name"].string?.capitalized
             type.append(types!)
         }
+        
+        for(_, value) in json["abilities"] {
+            let ability = value["ability"]["name"].string?.capitalized
+            abilities.append(ability!)
+        }
+        
+        for(_, value) in  json["stats"] {
+            let baseStat = value["base_stat"].int
+            let statName = value["stat"]["name"].string?.capitalized
+            
+            stats[statName!] = baseStat!
+        }
         lblType.text = type.joined(separator: "/")
+        labelAbility.text = abilities.joined(separator: ", ")
+        for(key, value) in stats {
+            dictToString.append("\(key): \(value)\n")
+            lblStats.text?.append("\(key): \(value)\n")
+        }
         saveCache()
+        lblStats.numberOfLines = 0
+        lblStats.sizeToFit()
     }
     
     func updateSpecies(with json : JSON) {
@@ -157,6 +181,8 @@ class Poke_monViewController: UIViewController {
                 }
                 detail.flavour = replaced
                 detail.type = type.joined(separator: "/")
+                detail.ability = abilities.joined(separator: "/")
+                detail.stat = dictToString
                 realm.add(detail, update: true)
             }
         } catch {
@@ -170,6 +196,10 @@ class Poke_monViewController: UIViewController {
             if item.id.value == pokemonId {
                 lblFlavor.text = item.flavour
                 lblType.text = item.type
+                labelAbility.text = item.ability
+                lblStats.text = item.stat
+                lblStats.numberOfLines = 0
+                lblStats.sizeToFit()
             }
         }
     }
