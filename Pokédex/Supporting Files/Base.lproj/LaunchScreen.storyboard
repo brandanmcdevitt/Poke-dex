@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pokemon GB.ttf">
+            <string>PokemonGB</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -18,16 +23,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="X_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Qtp-J7-Dku">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sW4-Mg-Iag">
+                                <rect key="frame" x="117" y="396" width="140" height="20"/>
+                                <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="20"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Qtp-J7-Dku" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="GYi-6U-NEo"/>
-                            <constraint firstItem="Qtp-J7-Dku" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bGy-Xm-LxB"/>
-                            <constraint firstItem="Qtp-J7-Dku" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pEM-ap-qq3"/>
-                            <constraint firstAttribute="bottom" secondItem="Qtp-J7-Dku" secondAttribute="bottom" id="tCH-MG-8m3"/>
+                            <constraint firstItem="sW4-Mg-Iag" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qra-oC-IbC"/>
+                            <constraint firstItem="sW4-Mg-Iag" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="smS-yI-w0d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,7 +43,4 @@
             <point key="canvasLocation" x="52" y="374.6305418719212"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="X_bg" width="562" height="1218"/>
-    </resources>
 </document>
