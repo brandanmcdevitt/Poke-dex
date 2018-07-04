@@ -1,4 +1,5 @@
-# Poke-dex
-iOS application for viewing Pokémons stats and skills
+<img src="https://github.com/brandanmcdevitt/Pokedex/blob/master/hero.png">
+
+###### Pokédex
 
 - [ ] Add selection for different region Pokédex's
