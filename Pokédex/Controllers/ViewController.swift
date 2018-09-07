@@ -1,11 +1,12 @@
 //
 //  ViewController.swift
-//  Pokédex
+//  Pokédex
 //
 //  Created by Brandan McDevitt on 26/06/2018.
 //  Copyright © 2018 Brandan McDevitt. All rights reserved.
 //
 
+//importing frameworks
 import UIKit
 import Alamofire
 import SwiftyJSON
@@ -13,6 +14,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    //declaring variables
     let baseURL = "http://pokeapi.co/api/v2/pokemon/?limit=151"
     var pokemonSpriteBase = "http://pokeapi.co/media/sprites/pokemon/"
     var format = ".png"
